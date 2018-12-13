@@ -4,30 +4,33 @@
     background:transparent;
     overflow:hidden;
     box-shadow:inherit;
-}
-
-.display-side {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    background:white;
     display:flex;
     align-items:center;
-    justify-content:center;
-    backface-visibility:hidden;
-    background:white;
-    transition:.4s;
+    justify-content:space-evenly;
 }
 
-.display-back {
-    transform:rotateX(180deg);
+.display > span {
+    width:100px;
+    text-align:center;
 }
 
-.display:hover > .display-front {
-    transform:rotateX(180deg);
+.display-restart {
+    height:30px;
+    width:85px;
+    cursor:pointer;
+    background:black;
+    border-radius:3px;
+    background:transparent;
+    border:1px solid rgba(0, 0, 0, .1);
+    transition:all .25s, border .15s;
 }
 
-.display:hover > .display-back {
-    transform:rotateX(360deg);
+.display-restart:focus {
+    border:1px solid rgba(0, 0, 255, .1);
+}
+
+.display-restart:active {
+    transform:scale(.95);
+    border:1px solid rgba(0, 255, 0, .1);
 }

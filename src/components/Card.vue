@@ -1,8 +1,8 @@
 <template>
-    <div :class="`display-card${( (!isOpened && !isDone) ? '' : ' rotated' ) + ( (!isDone) ? '' : ' hidden' )}`" @click="handleChoose">
+    <div :class="`display-card ${( (!isOpened && !isDone) ? '' : ' rotated' ) + ( (!isDone) ? '' : ' hidden' )}`" @click="handleChoose">
         <div class="display-card-front display-card-side"></div>
         <div class="display-card-back display-card-side">
-            <img class="display-card-back-icon" :src="icon" :alt="id" />
+            <img v-if="isOpened || isDone" class="display-card-back-icon" :src="icon" :alt="id" />
         </div>
     </div>
 </template>

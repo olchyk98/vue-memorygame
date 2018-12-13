@@ -3,6 +3,8 @@
     <Display
       :inGame="inGame"
       :missCounter="missCounter"
+      :restartCounter="restartCounter"
+      :restartGame="restartGame"
     />
     <Board
       :cards="cards || []"
@@ -29,7 +31,8 @@
       isFixed: true,
       isEnd: false,
       inGame: false,
-      missCounter: 0
+      missCounter: 0,
+      restartCounter: 0
     }),
     created() {
       this.generateCards();
@@ -110,6 +113,7 @@
             // The end?
             if(!this.cards.filter(io => io.isDone === false).length) {
               this.isFixed = true;
+              this.inGame = false;
 
               setTimeout(() => {
                 this.isEnd = true;
@@ -118,6 +122,18 @@
             }
           }
         }
+      },
+      restartGame() {
+        this.cards = null;
+        this.isWaiting = [];
+        this.isFixed = true;
+        this.isEnd = false;
+        this.inGame = false;
+        this.missCounter = 0;
+
+        this.generateCards();
+
+        this.restartCounter++;
       }
     }
   }

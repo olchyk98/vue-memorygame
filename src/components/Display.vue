@@ -1,12 +1,8 @@
 <template>
     <div class="display it">
-        <div class="display-front display-side">
-            <span>Time: {{ time | convertTime }}</span>
-            <span>Miss: {{ missCounter }}</span>
-        </div>
-        <div class="display-back display-side">
-            <span>Hello :)</span>
-        </div>
+        <span>Time: {{ time | convertTime }}</span>
+        <button class="display-restart" @click="restartGame">Reset</button>
+        <span>Miss: {{ missCounter }}</span>
     </div>
 </template>
 
@@ -25,6 +21,10 @@
             restartCounter: {
                 type: Number,
                 default: 0
+            },
+            restartGame: {
+                type: Function,
+                default: () => null
             }
         },
         created() {
@@ -38,7 +38,7 @@
             startTimer() {
                 clearInterval(this.timer);
                 this.timer = setInterval(() => {
-
+                    this.time++;
                 }, 1000);
             },
             stopTimer() {
@@ -50,14 +50,21 @@
             }
         },
         filters: {
-            convertTime() {
+            convertTime(a) {
+                a = parseInt(a);
 
+                let b = b => Math.floor(b),
+                    c = b(a / 60),
+                    d = b(a % 60),
+                    e = e => (e.toString().length === 1) ? '0' + e : e;
+
+                return `${ e(c) }:${ e(d) }`;
             }
         },
         watch: {
             inGame(a) {
                 if(a) this.startTimer();
-                this.stopCounter();
+                this.stopTimer();
             },
             restartCounter(a, b) {
                 if(a > b) { // restart
