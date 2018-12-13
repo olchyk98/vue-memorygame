@@ -1,0 +1,50 @@
+.display-card {
+    height:130px;
+    width:135px;
+    position:relative;
+    box-shadow:inherit;
+    perspective:800px;
+    opacity:1;
+    transition:opacity .4s .75s;
+}
+
+.display-card.hidden {
+    opacity:0;
+}
+
+.display-card-side {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:white;
+    border-radius:3px;
+    backface-visibility:hidden;
+    transition:.4s;
+}
+
+.display-card-front {
+    cursor:pointer;
+}
+
+.display-card-back {
+    transform:rotateY(180deg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.display-card.rotated > .display-card-front {
+    transform:rotateY(180deg);
+}
+
+.display-card.rotated > .display-card-back {
+    transform:rotateY(360deg);
+}
+
+.display-card-back-icon {
+    width:50%;
+    object-fit:cover;
+    object-position:center;
+}

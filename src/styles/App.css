@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+html, body {
+  margin:0;
+  height:100%;
+  font-family:"Quicksand";
+}
+
+.app {
+  background:#4DC5F7;
+  height:100vh;
+  width:100vw;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.app > * {
+  flex-shrink:0;
+}
+
+.it {
+  --margin:15px;
+
+  margin-top:var(--margin);
+  margin-bottom:var(--margin);
+  border-radius:3px;
+  background:white;
+  box-shadow:0px 0px 2.5px 0px rgba(0, 0, 0, .2);
+  width:630px;
+}
+
+.it.empty {
+  box-shadow:inherit;
+  background:transparent;
+}

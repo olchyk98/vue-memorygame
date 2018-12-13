@@ -1,0 +1,33 @@
+.display {
+    height:70px;
+    position:relative;
+    background:transparent;
+    overflow:hidden;
+    box-shadow:inherit;
+}
+
+.display-side {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    backface-visibility:hidden;
+    background:white;
+    transition:.4s;
+}
+
+.display-back {
+    transform:rotateX(180deg);
+}
+
+.display:hover > .display-front {
+    transform:rotateX(180deg);
+}
+
+.display:hover > .display-back {
+    transform:rotateX(360deg);
+}
