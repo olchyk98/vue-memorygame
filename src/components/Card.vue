@@ -36,5 +36,5 @@
 </script>
 
 <style>
-    @import '../styles/Card';
+    @import '../styles/Card.css';
 </style>
